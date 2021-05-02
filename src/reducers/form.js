@@ -155,6 +155,7 @@ export default function form(state = INITIAL_STATE, action) {
   case FIELD_REMOVE:
     return removeField(clone(state), action.name);
   case FIELD_UPDATE:
+    // eslint-disable-next-line no-case-declarations
     const {name, schema, required, newName} = action;
     return updateField(clone(state), name, schema, required, newName);
   case FIELD_INSERT:

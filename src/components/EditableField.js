@@ -93,8 +93,10 @@ function DraggableFieldContainer(props) {
   } = props;
   return (
     <Draggable type="moved-field" data={dragData}>
-      <Droppable types={["field", "moved-field"]}
-                 onDrop={onDrop}>
+      <Droppable
+        types={["field", "moved-field"]}
+        onDrop={onDrop}
+      >
         <div className="row editable-field" onDoubleClick={onDoubleClick}>
           <div className="col-sm-9">
             {children}
@@ -192,9 +194,11 @@ export default class EditableField extends Component {
         onDelete={this.handleDelete.bind(this)}
         onDoubleClick={this.handleEdit.bind(this)}
         onDrop={this.handleDrop.bind(this)}>
-        <SchemaField {...props}
-                     schema={this.state.schema}
-                     idSchema={{$id: props.name}}/>
+        <SchemaField
+          {...props}
+          schema={this.state.schema}
+          idSchema={{$id: props.name}}
+        />
       </DraggableFieldContainer>
     );
   }
