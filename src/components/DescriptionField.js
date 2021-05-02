@@ -1,4 +1,5 @@
-import React, {PropTypes} from "react";
+import PropTypes from "prop-types";
+import React from "react";
 
 const RIEInput = props => {
   return (
@@ -27,12 +28,11 @@ function DescriptionField(props) {
   );
 }
 
-if (process.env.NODE_ENV !== "production") {
-  DescriptionField.propTypes = {
-    id: PropTypes.string,
-    title: PropTypes.string,
-    required: PropTypes.bool,
-  };
-}
+DescriptionField.propTypes = {
+  id: PropTypes.string,
+  title: PropTypes.string,
+  required: PropTypes.bool,
+};
+
 
 export default DescriptionField;

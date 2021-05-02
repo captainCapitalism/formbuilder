@@ -1,4 +1,5 @@
-import React, {PropTypes} from "react";
+import PropTypes from "prop-types";
+import React from "react";
 // import {RIEInput} from "riek";
 
 const RIEInput = props => {
@@ -26,12 +27,10 @@ function TitleField(props) {
   );
 }
 
-if (process.env.NODE_ENV !== "production") {
-  TitleField.propTypes = {
-    id: PropTypes.string,
-    title: PropTypes.string,
-    required: PropTypes.bool,
-  };
-}
+TitleField.propTypes = {
+  id: PropTypes.string,
+  title: PropTypes.string,
+  required: PropTypes.bool,
+};
 
 export default TitleField;
