@@ -1,17 +1,13 @@
-import { combineReducers } from "redux";
+import {combineReducers} from "redux";
+import dragndrop from "./dragndrop";
 
 import form from "./form";
 import notifications from "./notifications";
-import serverStatus from "./serverStatus";
-import records from "./records";
-import dragndrop from "./dragndrop";
 
 
 const rootReducer = combineReducers({
   notifications,
   form,
-  serverStatus,
-  records,
   dragndrop
 });
 

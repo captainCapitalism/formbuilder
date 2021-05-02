@@ -2,17 +2,16 @@ import S from "string";
 
 import {
   FIELD_ADD,
-  FIELD_SWITCH,
-  FIELD_REMOVE,
-  FIELD_UPDATE,
   FIELD_INSERT,
+  FIELD_REMOVE,
   FIELD_SWAP,
+  FIELD_SWITCH,
+  FIELD_UPDATE,
   FORM_RESET,
-  FORM_UPDATE_TITLE,
   FORM_UPDATE_DESCRIPTION,
+  FORM_UPDATE_TITLE,
 } from "../actions/fieldlist";
 
-import {SCHEMA_RETRIEVAL_DONE} from "../actions/server";
 
 const INITIAL_STATE = {
   error: null,
@@ -147,12 +146,6 @@ function updateFormDescription(state, {description}) {
   return {...state, error: null};
 }
 
-function setSchema(state, data) {
-  state.schema = data.schema;
-  state.uiSchema = data.uiSchema;
-  return {...state, error: null};
-}
-
 export default function form(state = INITIAL_STATE, action) {
   switch(action.type) {
   case FIELD_ADD:
@@ -174,8 +167,6 @@ export default function form(state = INITIAL_STATE, action) {
     return updateFormTitle(clone(state), action.title);
   case FORM_UPDATE_DESCRIPTION:
     return updateFormDescription(clone(state), action.description);
-  case SCHEMA_RETRIEVAL_DONE:
-    return setSchema(clone(state), action.data);
   default:
     return state;
   }

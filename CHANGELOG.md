@@ -5,9 +5,10 @@
 
 ### Removed files
 
-* 🔥 Remove router files.
-* 🔥 Remove components related to removed routes.
-* 🔥 Remove tests related to removed components.
+* 🔥 Router files.
+* 🔥 Components related to removed routes.
+* 🔥 Tests related to removed components.
+* 🔥 Actions related to server.
 
 ### Modified dependencies
 
