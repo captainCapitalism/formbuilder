@@ -1,7 +1,4 @@
-import {
-  NOTIFICATION_ADD,
-  NOTIFICATION_REMOVE,
-} from "../actions/notifications";
+import {NOTIFICATION_ADD, NOTIFICATION_REMOVE,} from "../actions/notifications";
 
 const INITIAL_STATE = [];
 

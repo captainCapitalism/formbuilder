@@ -4,6 +4,7 @@
 * 🚚 Move components out of builder directories to `components` and `containers`.
 * 🔧 Update package.json metadata.
 * ♻️ Update project structure for react-scripts.
+* 🚚 Move source files to `src` directory.
 
 ### Removed files
 

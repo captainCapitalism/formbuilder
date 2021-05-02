@@ -3,8 +3,8 @@
 import {expect} from "chai";
 import {Simulate} from "react-addons-test-utils";
 import sinon from "sinon";
-import EditableField from "../../formbuilder/components/EditableField";
-import config from "../../formbuilder/config";
+import EditableField from "../../src/components/EditableField";
+import config from "../../src/config";
 
 import {createComponent} from "../test-utils";
 

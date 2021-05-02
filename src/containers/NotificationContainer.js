@@ -1,7 +1,7 @@
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import NotificationList from "../components/NotificationList";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
 import * as NotificationsActions from "../actions/notifications";
+import NotificationList from "../components/NotificationList";
 
 function mapStateToProps(state) {
   return {

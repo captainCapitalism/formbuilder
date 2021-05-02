@@ -1,4 +1,4 @@
-import SchemaField from '@rjsf/core/lib/components/fields/SchemaField';
+import SchemaField from "@rjsf/core/lib/components/fields/SchemaField";
 import React from "react";
 
 import FormActionsContainer from "../containers/FormActionsContainer";

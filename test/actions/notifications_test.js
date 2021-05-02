@@ -1,12 +1,9 @@
 /*eslint no-unused-vars: [2, { "varsIgnorePattern": "^d$" }]*/
 
-import { expect } from "chai";
+import {expect} from "chai";
 import sinon from "sinon";
 
-import {
-  NOTIFICATION_ADD,
-  addNotification
-} from "../../formbuilder/actions/notifications";
+import {addNotification, NOTIFICATION_ADD} from "../../src/actions/notifications";
 
 describe("notifications actions", () => {
   let sandbox;

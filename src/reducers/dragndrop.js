@@ -1,6 +1,4 @@
-import {
-  SET_DRAG_STATUS,
-} from "../actions/dragndrop";
+import {SET_DRAG_STATUS,} from "../actions/dragndrop";
 
 const INITIAL_STATE = {
   dragndropStatus: false
