@@ -1,8 +1,8 @@
+import Form from "@rjsf/core";
+import SchemaField from "@rjsf/core/lib/components/fields/SchemaField";
 import React, {Component} from "react";
 import {Button, ButtonToolbar} from "react-bootstrap";
 import {Draggable, Droppable} from "react-drag-and-drop";
-import Form from "react-jsonschema-form";
-import SchemaField from "react-jsonschema-form/lib/components/fields/SchemaField";
 import FieldListDropdown from "./FieldListDropdown";
 
 /**
@@ -26,7 +26,7 @@ function pickKeys(source, target, excludedKeys) {
 function shouldHandleDoubleClick(node) {
   // disable doubleclick on number input, so people can use inc/dec arrows
   if (node.tagName === "INPUT" &&
-      node.getAttribute("type") === "number") {
+    node.getAttribute("type") === "number") {
     return false;
   }
   return true;
@@ -54,19 +54,19 @@ class FieldPropertiesEditor extends Component {
     return (
       <div className="panel panel-default field-editor">
         <div className="panel-heading clearfix">
-            <strong className="panel-title">Edit {name}</strong>
+          <strong className="panel-title">Edit {name}</strong>
 
-            <ButtonToolbar className="pull-right">
-              <FieldListDropdown bsStyle="link" {...this.props}>
-                change field <i className="glyphicon glyphicon-cog"/>
-              </FieldListDropdown>
-              <Button bsStyle="link" onClick={onDelete}>
-                delete <i className="glyphicon glyphicon-trash"/>
-              </Button>
-              <Button bsStyle="link" name="close-btn" onClick={onCancel}>
-                close <i className="glyphicon glyphicon-remove-sign"/>
-              </Button>
-            </ButtonToolbar>
+          <ButtonToolbar className="pull-right">
+            <FieldListDropdown bsStyle="link" {...this.props}>
+              change field <i className="glyphicon glyphicon-cog"/>
+            </FieldListDropdown>
+            <Button bsStyle="link" onClick={onDelete}>
+              delete <i className="glyphicon glyphicon-trash"/>
+            </Button>
+            <Button bsStyle="link" name="close-btn" onClick={onCancel}>
+              close <i className="glyphicon glyphicon-remove-sign"/>
+            </Button>
+          </ButtonToolbar>
         </div>
         <div className="panel-body">
           <Form
@@ -94,7 +94,7 @@ function DraggableFieldContainer(props) {
   return (
     <Draggable type="moved-field" data={dragData}>
       <Droppable types={["field", "moved-field"]}
-        onDrop={onDrop}>
+                 onDrop={onDrop}>
         <div className="row editable-field" onDoubleClick={onDoubleClick}>
           <div className="col-sm-9">
             {children}
@@ -172,14 +172,14 @@ export default class EditableField extends Component {
           {...props}
           onCancel={this.handleCancel.bind(this)}
           onUpdate={this.handleUpdate.bind(this)}
-          onDelete={this.handleDelete.bind(this)} />
+          onDelete={this.handleDelete.bind(this)}/>
       );
     }
 
     if (props.schema.type === "object") {
       if (!props.name) {
         // This can only be the root form object, returning a regular SchemaField.
-        return <SchemaField {...props} idSchema={{$id: props.name}} />;
+        return <SchemaField {...props} idSchema={{$id: props.name}}/>;
       }
     }
 
@@ -193,8 +193,8 @@ export default class EditableField extends Component {
         onDoubleClick={this.handleEdit.bind(this)}
         onDrop={this.handleDrop.bind(this)}>
         <SchemaField {...props}
-          schema={this.state.schema}
-          idSchema={{$id: props.name}} />
+                     schema={this.state.schema}
+                     idSchema={{$id: props.name}}/>
       </DraggableFieldContainer>
     );
   }

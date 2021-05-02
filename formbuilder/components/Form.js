@@ -1,5 +1,5 @@
+import SchemaField from '@rjsf/core/lib/components/fields/SchemaField';
 import React from "react";
-import SchemaField from "react-jsonschema-form/lib/components/fields/SchemaField";
 
 import FormActionsContainer from "../containers/FormActionsContainer";
 
@@ -21,7 +21,7 @@ export default function Form(props) {
     <div>
       {error ? <div className="alert alert-danger">{error}</div> : <div/>}
       <div className="rjsf builder-form">
-        <SchemaField {...props} registry={registry} />
+        <SchemaField {...props} registry={registry}/>
       </div>
 
       <FormActionsContainer {...props}/>
