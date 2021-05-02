@@ -1,4 +1,5 @@
 import SchemaField from "@rjsf/core/lib/components/fields/SchemaField";
+import {getDefaultRegistry} from "@rjsf/core/lib/utils";
 import React from "react";
 
 import FormActionsContainer from "../containers/FormActionsContainer";
@@ -8,9 +9,9 @@ export default function Form(props) {
   console.log("dragndropstatus", dragndropStatus);
 
   const registry = {
-    ...SchemaField.defaultProps.registry,
+    ...getDefaultRegistry(),
     fields: {
-      ...SchemaField.defaultProps.registry.fields,
+      ...getDefaultRegistry().fields,
       SchemaField: props.SchemaField,
       TitleField: props.TitleField,
       DescriptionField: props.DescriptionField,
@@ -21,7 +22,10 @@ export default function Form(props) {
     <div>
       {error ? <div className="alert alert-danger">{error}</div> : <div/>}
       <div className="rjsf builder-form">
-        <SchemaField {...props} registry={registry}/>
+        <SchemaField
+          {...props}
+          registry={registry}
+        />
       </div>
 
       <FormActionsContainer {...props}/>
