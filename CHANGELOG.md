@@ -12,6 +12,7 @@
 * 🔥 Components related to removed routes.
 * 🔥 Tests related to removed components.
 * 🔥 Actions related to server.
+* 🔥 Background image.
 
 ### Modified dependencies
 
