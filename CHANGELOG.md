@@ -38,3 +38,6 @@
 * ➖ riek.
 * ➖ react-addons-test-utils.
 * ➖ react-jsonschema-form.
+* ➖ webpack and its plugins.
+* ➖ babel and its plugins.
+* ➖ eslint.
