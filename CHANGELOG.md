@@ -17,6 +17,7 @@
 
 * ➕ depcheck.
 * ➕ @rjsf/core.
+* ➕ react-scripts.
 
 #### Upgraded
 
