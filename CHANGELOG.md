@@ -5,3 +5,6 @@
 #### Removed files
 * 🔥 Remove router files.
 
+#### Modified dependencies
+* ➖ Remove react-router.
+* ➖ Remove history.
