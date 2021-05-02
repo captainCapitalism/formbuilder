@@ -27,6 +27,7 @@
 * ⬆️ React and React-DOM to 17.0.2.
 * ⬆️ react-bootstrap to 1.5.2.
 * ⬆️ react-redux to 7.2.4.
+* ⬆️ redux to 4.1.0.
 
 #### Removed
 
