@@ -1,5 +1,4 @@
 import React from "react";
-import {render} from "react-dom";
 import {Provider} from "react-redux";
 import "./bootswatch.less";
 import Header from "./components/Header";
@@ -13,7 +12,7 @@ const store = configureStore({
   notifications: [],
 });
 
-render((
+export const App = () => (
   <Provider store={store}>
     <div>
       <Header/>
@@ -21,4 +20,4 @@ render((
       <FormContainer/>
     </div>
   </Provider>
-), document.getElementById("app"));
+);
