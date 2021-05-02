@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import {Dropdown, MenuItem} from "react-bootstrap";
+import {Dropdown} from "react-bootstrap";
 
 import config from "../config";
 
@@ -9,7 +9,7 @@ export default class FieldListDropdown extends Component {
     super(props);
 
     let fieldListAction = "add_field";
-    if (typeof(this.props.name) !== "undefined") {
+    if (typeof (this.props.name) !== "undefined") {
       // By default FieldListDropdown adds a new field, but in this case
       // we want to switch from a field to a other one (ex: "input" to
       // "checkbox").
@@ -37,21 +37,26 @@ export default class FieldListDropdown extends Component {
     }
   }
 
-  render () {
+  render() {
     return (
-      <Dropdown dropup={this.state.fieldListAction === "add_field"} id="split-button-dropup" className={this.props.className}>
+      <Dropdown
+        dropup={this.state.fieldListAction === "add_field"} id="split-button-dropup"
+        className={this.props.className}
+      >
         <Dropdown.Toggle bsStyle={this.props.bsStyle}>
           {this.props.children}
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
           {this.state.fieldList.map((field, index) => {
-            return <MenuItem key={index}
+            return (
+              <Dropdown.Item
+                key={index}
                 eventKey={index}
                 onSelect={this.handleFieldListAction.bind(this)}
-                ><i className={`glyphicon glyphicon-${field.icon}`} />
+              ><i className={`glyphicon glyphicon-${field.icon}`}/>
                 {field.label}
-              </MenuItem>;
+              </Dropdown.Item>);
           })}
         </Dropdown.Menu>
       </Dropdown>
