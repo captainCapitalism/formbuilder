@@ -25,3 +25,7 @@
 * ➖ history.
 * ➖ json2csv and json2xls.
 * ➖ react-clipboard.js.
+* ➖ gh-pages.
+* ➖ kinto-http.
+* ➖ isomorphic-fetch.
+* ➖ btoa.
