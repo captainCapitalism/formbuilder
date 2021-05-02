@@ -1,12 +1,12 @@
 /*eslint no-unused-vars: [2, { "varsIgnorePattern": "^d$" }]*/
 
-import { expect } from "chai";
+import {expect} from "chai";
+import {Simulate} from "react-addons-test-utils";
 import sinon from "sinon";
-import { Simulate } from "react-addons-test-utils";
-
-import { createComponent, d } from "../test-utils";
+import EditableField from "../../formbuilder/components/EditableField";
 import config from "../../formbuilder/config";
-import EditableField from "../../formbuilder/components/builder/EditableField";
+
+import {createComponent} from "../test-utils";
 
 
 const {fieldList} = config;

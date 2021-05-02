@@ -1,6 +1,5 @@
-import React from "react";
-
 import btoa from "btoa";
+import React from "react";
 
 export default function JsonSchemaDownloader(props) {
   const filename = props.schema.title + ".json";

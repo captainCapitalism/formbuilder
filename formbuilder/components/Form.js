@@ -1,7 +1,7 @@
 import React from "react";
-
-import FormActionsContainer from "./../../containers/builder/FormActionsContainer";
 import SchemaField from "react-jsonschema-form/lib/components/fields/SchemaField";
+
+import FormActionsContainer from "../containers/FormActionsContainer";
 
 export default function Form(props) {
   const {error, dragndropStatus} = props;

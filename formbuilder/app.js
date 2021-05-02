@@ -3,7 +3,7 @@ import {render} from "react-dom";
 import {Provider} from "react-redux";
 import "./bootswatch.less";
 import Header from "./components/Header";
-import FormContainer from "./containers/builder/FormContainer";
+import FormContainer from "./containers/FormContainer";
 import NotificationContainer from "./containers/NotificationContainer";
 import configureStore from "./store/configureStore";
 import "./styles.css";

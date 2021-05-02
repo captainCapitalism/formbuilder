@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
-import {Dropdown, MenuItem}  from "react-bootstrap";
+import {Dropdown, MenuItem} from "react-bootstrap";
 
-import config from "../../config";
+import config from "../config";
 
 export default class FieldListDropdown extends Component {
   constructor(props) {
