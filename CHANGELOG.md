@@ -15,6 +15,10 @@
 
 * ➕ depcheck.
 
+#### Upgraded
+
+* ⬆️ React and React-DOM to 15.7.0
+
 #### Removed
 
 * ➖ react-router.
