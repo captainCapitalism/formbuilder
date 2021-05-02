@@ -2,6 +2,7 @@
 
 * 📄 Add MIT license and retain APACHE 2.0 from original.
 * 🚚 Move components out of builder directories to `components` and `containers`.
+* 🔧 Update package.json metadata.
 
 ### Removed files
 
