@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router";
 
 
 export default function Header(props) {
@@ -11,7 +10,6 @@ export default function Header(props) {
       </div>
       <div className="navbar-collapse collapse">
         <ul className="nav navbar-nav navbar-right">
-          <li><Link to="/faq">FAQ</Link></li>
           <li><a href="https://kinto.readthedocs.io/en/latest/overview.html">Our values</a></li>
         </ul>
       </div>
