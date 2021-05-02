@@ -5,6 +5,7 @@
 #### Removed files
 * 🔥 Remove router files.
 * 🔥 Remove components related to removed routes.
+* 🔥 Remove tests related to removed components.
 
 #### Modified dependencies
 * ➖ Remove react-router.
