@@ -1,19 +1,27 @@
 import React, {PropTypes} from "react";
-import {RIEInput} from "riek";
+// import {RIEInput} from "riek";
+
+const RIEInput = props => {
+  return (
+    <div>
+      Placeholder for RIEInput
+    </div>
+  );
+};
 
 function TitleField(props) {
-  const onUpdate = function(formData) {
+  const onUpdate = function (formData) {
     props.updateFormTitle(formData);
   };
 
-  const {id, title=""} = props;
+  const {id, title = ""} = props;
   return (
     <legend id={id}>
       <RIEInput
         className="edit-in-place"
         propName="title"
         value={title}
-        change={onUpdate} />
+        change={onUpdate}/>
     </legend>
   );
 }
