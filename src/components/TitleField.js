@@ -1,14 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
-// import {RIEInput} from "riek";
+import {RIEInput} from "./DropInRIE/DropInRIEInput";
 
-const RIEInput = props => {
-  return (
-    <div>
-      Placeholder for RIEInput
-    </div>
-  );
-};
 
 function TitleField(props) {
   const onUpdate = function (formData) {

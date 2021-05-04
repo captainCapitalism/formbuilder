@@ -1,13 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-
-const RIEInput = props => {
-  return (
-    <div>
-      Placeholder for RIEInput
-    </div>
-  );
-};
+import {RIEInput} from "./DropInRIE/DropInRIEInput";
 
 
 function DescriptionField(props) {
