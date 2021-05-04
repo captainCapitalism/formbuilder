@@ -21,6 +21,7 @@
 * ➕ depcheck.
 * ➕ @rjsf/core.
 * ➕ react-scripts.
+* ➕ prop-types.
 
 #### Upgraded
 
