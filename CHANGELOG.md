@@ -5,6 +5,7 @@
 * 🔧 Update package.json metadata.
 * ♻️ Update project structure for react-scripts.
 * 🚚 Move source files to `src` directory.
+* ♻ Add riek's RIEInput.
 
 ### Removed files
 
