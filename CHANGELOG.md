@@ -6,6 +6,7 @@
 * ♻️ Update project structure for react-scripts.
 * 🚚 Move source files to `src` directory.
 * ♻ Add riek's RIEInput.
+* ✅ Run tests with `jest`.
 
 ### Removed files
 
@@ -24,6 +25,8 @@
 * ➕ @rjsf/core.
 * ➕ react-scripts.
 * ➕ prop-types.
+* ➕ typescript.
+* ➕ ts-jest.
 
 #### Upgraded
 

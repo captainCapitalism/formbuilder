@@ -10,7 +10,7 @@
     "publish-to-npm": "npm run dist && npm publish",
     "start": "react-scripts start",
     "tdd": "npm run test -- -w",
-    "test": "SERVER_URL=http://localhost:8888/v1 NODE_ENV=test mocha --compilers js:babel/register --recursive --require ./test/setup-jsdom.js $(find test -name '*_test.js')"
+    "test": "jest"
   },
   "main": "lib/index.js",
   "files": [
@@ -75,5 +75,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "jsdom",
+    "transform": {
+      "\\.js$": [
+        "ts-jest"
+      ]
+    }
   }
 }
