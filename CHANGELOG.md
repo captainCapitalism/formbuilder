@@ -26,8 +26,8 @@
 * ➕ @rjsf/core.
 * ➕ react-scripts.
 * ➕ prop-types.
-* ➕ typescript.
-* ➕ ts-jest.
+* ➕ @babel/preset-env.
+
 
 #### Upgraded
 
