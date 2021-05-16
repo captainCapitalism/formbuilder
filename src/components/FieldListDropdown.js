@@ -40,10 +40,10 @@ export default class FieldListDropdown extends Component {
   render() {
     return (
       <Dropdown
-        dropup={this.state.fieldListAction === "add_field"} id="split-button-dropup"
+        dropup={(this.state.fieldListAction === "add_field").toString()} id="split-button-dropup"
         className={this.props.className}
       >
-        <Dropdown.Toggle bsStyle={this.props.bsStyle}>
+        <Dropdown.Toggle variant={this.props.bsStyle}>
           {this.props.children}
         </Dropdown.Toggle>
 
