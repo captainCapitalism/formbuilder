@@ -68,7 +68,7 @@ describe("EditableField", () => {
 
     it("should render a EditableField in render mode", () => {
       expect(comp.queryAll(".editable-field"))
-        .to.have.length.of(1);
+        .toHaveLength(1);
     });
   });
 });
