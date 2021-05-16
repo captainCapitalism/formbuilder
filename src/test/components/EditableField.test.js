@@ -1,6 +1,6 @@
 /*eslint no-unused-vars: [2, { "varsIgnorePattern": "^d$" }]*/
 
-import {Simulate} from "react-addons-test-utils";
+import {Simulate} from "react-dom/test-utils";
 import sinon from "sinon";
 import EditableField from "../../components/EditableField";
 import config from "../../config";
