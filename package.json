@@ -77,8 +77,6 @@
     ]
   },
   "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "jsdom",
     "transform": {
       "\\.js$": [
         "ts-jest"
