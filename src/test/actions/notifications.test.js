@@ -1,21 +1,19 @@
 /*eslint no-unused-vars: [2, { "varsIgnorePattern": "^d$" }]*/
 
 import {afterEach, beforeEach, describe, expect, jest, test} from "@jest/globals";
-import sinon from "sinon";
-
 import {addNotification, NOTIFICATION_ADD} from "../../actions/notifications";
 
+
 describe("notifications actions", () => {
-  let sandbox;
   let dispatch;
 
   beforeEach(() => {
-    sandbox = sinon.sandbox.create();
     dispatch = jest.fn();
-  });
+    jest.useFakeTimers("modern");
 
+  });
   afterEach(() => {
-    sandbox.restore();
+    jest.clearAllTimers();
   });
 
   describe("addNotification", () => {
@@ -38,15 +36,12 @@ describe("notifications actions", () => {
       });
     });
     describe("With fake timers", () => {
-      beforeEach(() => {
-        sandbox.useFakeTimers();
-      });
 
       test("should dismiss a message after a specific time", () => {
         addNotification("Some dismissable message", {
           type: "info",
           autoDismiss: true,
-          dismissAfter: 2
+          dismissAfter: 200
         })(dispatch);
         expect(dispatch).toHaveBeenCalledWith(expect.objectContaining({
           type: "NOTIFICATION_ADD",
@@ -56,11 +51,12 @@ describe("notifications actions", () => {
             type: "info"
           }
         }));
-        sandbox.clock.tick(3);
-        expect(dispatch).toHaveBeenCalledWith(expect.objectContaining({
-          type: "NOTIFICATION_REMOVE",
-          id: expect.any(String)
-        }));
+        setTimeout(() => {
+          expect(dispatch).toHaveBeenCalledWith(expect.objectContaining({
+            type: "NOTIFICATION_REMOVE",
+            id: expect.any(String)
+          }));
+        }, 201);
       });
 
       test("should not dismiss an undismissable message", () => {
@@ -77,8 +73,10 @@ describe("notifications actions", () => {
             type: "info"
           }
         }));
-        sandbox.clock.tick(3);
-        expect(dispatch).toBeCalledTimes(1);
+        setTimeout(() => {
+          expect(dispatch).toBeCalledTimes(1);
+        }, 3);
+        jest.runAllTimers();
       });
 
       test("should dismiss messages by default", () => {
@@ -91,11 +89,13 @@ describe("notifications actions", () => {
             type: "info"
           }
         }));
-        sandbox.clock.tick(6000);
-        expect(dispatch).toHaveBeenCalledWith(expect.objectContaining({
-          type: "NOTIFICATION_REMOVE",
-          id: expect.any(String)
-        }));
+        setTimeout(() => {
+          expect(dispatch).toHaveBeenCalledWith(expect.objectContaining({
+            type: "NOTIFICATION_REMOVE",
+            id: expect.any(String)
+          }));
+        }, 6000);
+        jest.runAllTimers();
       });
     });
   });
