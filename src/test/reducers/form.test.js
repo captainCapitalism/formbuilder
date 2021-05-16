@@ -2,7 +2,7 @@
 
 import * as actions from "../../actions/fieldlist";
 import config from "../../config";
-import {describe, it, expect, beforeEach, afterEach} from "@jest/globals";
+import {describe, it, expect, beforeEach} from "@jest/globals";
 
 import form from "../../reducers/form";
 
