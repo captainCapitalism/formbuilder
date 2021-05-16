@@ -1,9 +1,8 @@
 /*eslint no-unused-vars: [2, { "varsIgnorePattern": "^d$" }]*/
 
-import {expect} from "chai";
 import sinon from "sinon";
 
-import {addNotification, NOTIFICATION_ADD} from "../../src/actions/notifications";
+import {addNotification, NOTIFICATION_ADD} from "../../actions/notifications";
 
 describe("notifications actions", () => {
   let sandbox;
@@ -19,21 +18,21 @@ describe("notifications actions", () => {
   });
 
   describe("addNotification", () => {
-    it("should send info notifications by default", (done) => {
+    test("should send info notifications by default", (done) => {
       addNotification("Some info message")(({type, notification}) => {
-        expect(type).to.eql(NOTIFICATION_ADD);
-        expect(notification.message).to.eql("Some info message");
-        expect(notification.type).to.eql("info");
+        expect(type).toEqual(NOTIFICATION_ADD);
+        expect(notification.message).toEqual("Some info message");
+        expect(notification.type).toEqual("info");
         done();
       });
     });
 
-    it("should send error notifications if specified", (done) => {
+    test("should send error notifications if specified", (done) => {
       const thunk = addNotification("Some error message", {type: "error"});
       thunk(({type, notification}) => {
-        expect(type).to.eql(NOTIFICATION_ADD);
-        expect(notification.message).to.eql("Some error message");
-        expect(notification.type).to.eql("error");
+        expect(type).toEqual(NOTIFICATION_ADD);
+        expect(notification.message).toEqual("Some error message");
+        expect(notification.type).toEqual("error");
         done();
       });
     });
@@ -42,7 +41,7 @@ describe("notifications actions", () => {
         sandbox.useFakeTimers();
       });
 
-      it("should dismiss a message after a specific time", () => {
+      test("should dismiss a message after a specific time", () => {
         addNotification("Some dismissable message", {
           type: "info",
           autoDismiss: true,
@@ -63,7 +62,7 @@ describe("notifications actions", () => {
         });
       });
 
-      it("should not dismiss an undismissable message", () => {
+      test("should not dismiss an undismissable message", () => {
         addNotification("Some dismissable message", {
           type: "info",
           autoDismiss: false,
@@ -78,10 +77,10 @@ describe("notifications actions", () => {
           }
         });
         sandbox.clock.tick(3);
-        expect(dispatch.calledOnce).to.be.true;
+        expect(dispatch.calledOnce).toBe(true);
       });
 
-      it("should dismiss messages by default", () => {
+      test("should dismiss messages by default", () => {
         addNotification("Some dismissable message")(dispatch);
         sinon.assert.calledWithMatch(dispatch, {
           type: "NOTIFICATION_ADD",

@@ -6,6 +6,8 @@
 * ♻️ Update project structure for react-scripts.
 * 🚚 Move source files to `src` directory.
 * ♻ Add riek's RIEInput.
+* ✅ Run tests with `jest`.
+* 🚚 Move test files to `src` directory with intent of placing them next to source files.
 
 ### Removed files
 
@@ -14,6 +16,7 @@
 * 🔥 Tests related to removed components.
 * 🔥 Actions related to server.
 * 🔥 Background image.
+* 🔥 Webpack config.
 
 ### Modified dependencies
 
@@ -23,6 +26,8 @@
 * ➕ @rjsf/core.
 * ➕ react-scripts.
 * ➕ prop-types.
+* ➕ @babel/preset-env.
+
 
 #### Upgraded
 
@@ -47,3 +52,6 @@
 * ➖ webpack and its plugins.
 * ➖ babel and its plugins.
 * ➖ eslint.
+* ➖ mocha.
+* ➖ chai.
+* ➖ jsdom.

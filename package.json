@@ -5,12 +5,12 @@
   "scripts": {
     "build:formbuilder": "NODE_ENV=production rimraf build && webpack --config webpack.config.prod.js --optimize-minimize && cp public/index.prod.html build/index.html",
     "build:formbuilder-gh": "rimraf build && webpack --config webpack.config.github.js && cp public/index.prod.html build/index.html",
-    "lint": "eslint src test",
+    "lint": "eslint src src/test",
     "publish-to-gh-pages": "npm run build:formbuilder-gh && gh-pages --dist build/",
     "publish-to-npm": "npm run dist && npm publish",
     "start": "react-scripts start",
     "tdd": "npm run test -- -w",
-    "test": "SERVER_URL=http://localhost:8888/v1 NODE_ENV=test mocha --compilers js:babel/register --recursive --require ./test/setup-jsdom.js $(find test -name '*_test.js')"
+    "test": "jest"
   },
   "main": "lib/index.js",
   "files": [
@@ -34,26 +34,21 @@
     "uuid": "^2.0.2"
   },
   "devDependencies": {
-    "chai": "^3.3.0",
+    "@babel/preset-env": "^7.14.2",
     "css-loader": "^0.23.1",
     "depcheck": "^1.4.0",
     "eslint-plugin-react": "^3.6.3",
     "express": "^4.13.3",
     "file-loader": "^0.9.0",
     "html": "^1.0.0",
-    "jsdom": "^7.2.1",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
-    "mocha": "^8.3.2",
     "react-scripts": "^4.0.3",
     "react-transform-hmr": "^1.0.1",
     "rimraf": "^2.4.4",
     "sinon": "^1.17.2",
     "style-loader": "^0.13.0",
     "url-loader": "^4.1.1"
-  },
-  "directories": {
-    "test": "test"
   },
   "author": "Michał Bargiel <michal5bargiel@gmail.com>",
   "keywords": [

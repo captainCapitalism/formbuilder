@@ -1,10 +1,9 @@
 /*eslint no-unused-vars: [2, { "varsIgnorePattern": "^d$" }]*/
 
-import {expect} from "chai";
-import * as actions from "../../src/actions/fieldlist";
-import config from "../../src/config";
+import * as actions from "../../actions/fieldlist";
+import config from "../../config";
 
-import form from "../../src/reducers/form";
+import form from "../../reducers/form";
 
 
 const {fieldList} = config;
@@ -23,43 +22,43 @@ describe("form reducer", () => {
 
     describe("Empty form", () => {
       describe("schema", () => {
-        it("should add a new field to the form schema", () => {
+        test("should add a new field to the form schema", () => {
           expect(Object.keys(state.schema.properties))
-            .to.have.length.of(1);
+            .toHaveLength(1);
         });
 
         it("should generate a sluggified name for the added field", () => {
           expect(firstFieldAdded)
-            .to.match(/^question_\d+/);
+            .toEqual(expect.stringMatching(/^question_\d+/));
         });
 
         it("should assign the expected title to added field", () => {
           const fieldSchema = state.schema.properties[firstFieldAdded];
 
-          expect(fieldSchema.title).eql("Question 1");
+          expect(fieldSchema.title).toEqual("Question 1");
         });
 
         it("should assign the expected type to added field", () => {
           const fieldSchema = state.schema.properties[firstFieldAdded];
 
-          expect(fieldSchema.type).eql("string");
+          expect(fieldSchema.type).toEqual("string");
         });
       });
 
       describe("uiSchema", () => {
         it("should have an entry for added field", () => {
           expect(state.uiSchema)
-            .to.have.property(firstFieldAdded);
+            .toHaveProperty(firstFieldAdded);
         });
 
         it("should provide an editSchema", () => {
           expect(state.uiSchema[firstFieldAdded].editSchema)
-            .eql(textField.uiSchema.editSchema);
+            .toEqual(textField.uiSchema.editSchema);
         });
 
         it("should initialize field order list", () => {
           expect(state.uiSchema["ui:order"])
-            .eql([firstFieldAdded]);
+            .toEqual([firstFieldAdded]);
         });
       });
     });
@@ -75,29 +74,29 @@ describe("form reducer", () => {
       describe("schema", () => {
         it("should add a second field to the form schema", () => {
           expect(Object.keys(newState.schema.properties))
-            .to.have.length.of(2);
+            .toHaveLength(2);
         });
 
         it("should generate a sluggified name for the second field", () => {
           expect(secondFieldAdded)
-            .to.match(/^question_\d+/);
+            .toEqual(expect.stringMatching(/^question_\d+/));
         });
       });
 
       describe("uiSchema", () => {
         it("should have an entry for the newly added field", () => {
           expect(newState.uiSchema)
-            .to.have.property(secondFieldAdded);
+            .toHaveProperty(secondFieldAdded);
         });
 
         it("should provide an editSchema", () => {
           expect(newState.uiSchema[firstFieldAdded].editSchema)
-            .eql(multilineTextField.uiSchema.editSchema);
+            .toEqual(multilineTextField.uiSchema.editSchema);
         });
 
         it("should update the field order list", () => {
           expect(newState.uiSchema["ui:order"])
-            .eql([firstFieldAdded, secondFieldAdded]);
+            .toEqual([firstFieldAdded, secondFieldAdded]);
         });
       });
     });
@@ -114,7 +113,7 @@ describe("form reducer", () => {
     it("should keep current index", () => {
       const previousIndex = state.currentIndex;
       expect(form(state, actions.removeField(firstFieldAdded)).currentIndex)
-        .eql(previousIndex);
+        .toEqual(previousIndex);
     });
 
     describe("Multiple items", () => {
@@ -132,12 +131,12 @@ describe("form reducer", () => {
 
       it("should remove a field from the required fields list", () => {
         expect(removedState.schema.required)
-          .to.be.a("undefined");
+          .toBe(undefined);
       });
 
       it("should remove a field from the uiSchema order list", () => {
         expect(removedState.uiSchema["ui:order"])
-          .eql([firstFieldAdded]);
+          .toEqual([firstFieldAdded]);
       });
     });
   });
@@ -161,7 +160,7 @@ describe("form reducer", () => {
         firstFieldAdded);
 
       expect(form(state, action).schema.properties[firstFieldAdded])
-        .eql(newSchema);
+        .toEqual(newSchema);
     });
 
     it("should mark a field as required", () => {
@@ -169,7 +168,7 @@ describe("form reducer", () => {
         firstFieldAdded);
 
       expect(form(state, action).schema.required)
-        .eql([firstFieldAdded]);
+        .toEqual([firstFieldAdded]);
     });
 
     it("shouldn't touch uiSchema order", () => {
@@ -177,7 +176,7 @@ describe("form reducer", () => {
         firstFieldAdded);
 
       expect(form(state, action).uiSchema["ui:order"])
-        .eql(state.uiSchema["ui:order"]);
+        .toEqual(state.uiSchema["ui:order"]);
     });
 
     describe("Successful Renaming", () => {
@@ -192,22 +191,22 @@ describe("form reducer", () => {
 
       it("should expose new field name", () => {
         expect(renamedState.schema.properties[newFieldName])
-          .eql(newSchema);
+          .toEqual(newSchema);
       });
 
       it("should discard previous name", () => {
         expect(renamedState.schema.properties[firstFieldAdded])
-          .to.be.a("undefined");
+          .toBe(undefined);
       });
 
       it("should update required fields list", () => {
         expect(renamedState.schema.required)
-          .eql([newFieldName]);
+          .toEqual([newFieldName]);
       });
 
       it("should update uiSchema order", () => {
         expect(renamedState.uiSchema["ui:order"])
-          .eql([newFieldName]);
+          .toEqual([newFieldName]);
       });
     });
 
@@ -224,7 +223,7 @@ describe("form reducer", () => {
           state.schema.properties[secondFieldAdded], false, firstFieldAdded));
 
         expect(state.error)
-          .eql(`Duplicate field name "${firstFieldAdded}", operation aborted.`);
+          .toEqual(`Duplicate field name "${firstFieldAdded}", operation aborted.`);
       });
     });
   });
@@ -243,7 +242,7 @@ describe("form reducer", () => {
 
     it("should insert the new field at the desired position", () => {
       expect(state.uiSchema["ui:order"])
-        .eql([firstField, insertedField, secondField]);
+        .toEqual([firstField, insertedField, secondField]);
     });
   });
 
@@ -260,7 +259,7 @@ describe("form reducer", () => {
 
     it("should swap two fields", () => {
       expect(state.uiSchema["ui:order"])
-        .eql([secondField, firstField]);
+        .toEqual([secondField, firstField]);
     });
   });
 
@@ -269,7 +268,7 @@ describe("form reducer", () => {
       const initialState = form(undefined, {type: null});
       var state = form(undefined, actions.addField(textField));
       state = form(state, actions.resetForm(() => {
-        expect(state).eql(initialState);
+        expect(state).toEqual(initialState);
       }));
 
     });
@@ -278,14 +277,14 @@ describe("form reducer", () => {
   describe("FORM_UPDATE_TITLE action", () => {
     it("should update form properties", () => {
       const state = form(undefined, actions.updateFormTitle({title: "title"}));
-      expect(state.schema.title).eql("title");
+      expect(state.schema.title).toEqual("title");
     });
   });
 
   describe("FORM_UPDATE_DESCRIPTION action", () => {
     it("should update form properties", () => {
       const state = form(undefined, actions.updateFormDescription({description: "description"}));
-      expect(state.schema.description).eql("description");
+      expect(state.schema.description).toEqual("description");
     });
   });
 });

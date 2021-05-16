@@ -1,10 +1,9 @@
 /*eslint no-unused-vars: [2, { "varsIgnorePattern": "^d$" }]*/
 
-import {expect} from "chai";
-import {Simulate} from "react-addons-test-utils";
+import {Simulate} from "react-dom/test-utils";
 import sinon from "sinon";
-import EditableField from "../../src/components/EditableField";
-import config from "../../src/config";
+import EditableField from "../../components/EditableField";
+import config from "../../config";
 
 import {createComponent} from "../test-utils";
 
@@ -44,7 +43,7 @@ describe("EditableField", () => {
 
     it("should render an properties edition form", () => {
       expect(comp.query().classList.contains("field-editor"))
-        .eql(true);
+        .toEqual(true);
     });
 
     it("should update field properties", () => {
@@ -54,7 +53,7 @@ describe("EditableField", () => {
       });
       return new Promise((r) => setTimeout(r, 10)).then(() => {
         Simulate.submit(comp.query("form"));
-        expect(comp.query("label").textContent).eql(value);
+        expect(comp.query("label").textContent).toEqual(value);
       });
     });
   });
@@ -69,7 +68,7 @@ describe("EditableField", () => {
 
     it("should render a EditableField in render mode", () => {
       expect(comp.queryAll(".editable-field"))
-        .to.have.length.of(1);
+        .toHaveLength(1);
     });
   });
 });
