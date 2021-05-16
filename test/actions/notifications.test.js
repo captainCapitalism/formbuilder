@@ -20,9 +20,9 @@ describe("notifications actions", () => {
   describe("addNotification", () => {
     test("should send info notifications by default", (done) => {
       addNotification("Some info message")(({type, notification}) => {
-        expect(type).to.eql(NOTIFICATION_ADD);
-        expect(notification.message).to.eql("Some info message");
-        expect(notification.type).to.eql("info");
+        expect(type).toEqual(NOTIFICATION_ADD);
+        expect(notification.message).toEqual("Some info message");
+        expect(notification.type).toEqual("info");
         done();
       });
     });
@@ -30,9 +30,9 @@ describe("notifications actions", () => {
     test("should send error notifications if specified", (done) => {
       const thunk = addNotification("Some error message", {type: "error"});
       thunk(({type, notification}) => {
-        expect(type).to.eql(NOTIFICATION_ADD);
-        expect(notification.message).to.eql("Some error message");
-        expect(notification.type).to.eql("error");
+        expect(type).toEqual(NOTIFICATION_ADD);
+        expect(notification.message).toEqual("Some error message");
+        expect(notification.type).toEqual("error");
         done();
       });
     });

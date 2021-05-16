@@ -43,7 +43,7 @@ describe("EditableField", () => {
 
     it("should render an properties edition form", () => {
       expect(comp.query().classList.contains("field-editor"))
-        .eql(true);
+        .toEqual(true);
     });
 
     it("should update field properties", () => {
@@ -53,7 +53,7 @@ describe("EditableField", () => {
       });
       return new Promise((r) => setTimeout(r, 10)).then(() => {
         Simulate.submit(comp.query("form"));
-        expect(comp.query("label").textContent).eql(value);
+        expect(comp.query("label").textContent).toEqual(value);
       });
     });
   });
