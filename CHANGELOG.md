@@ -52,3 +52,6 @@
 * ➖ webpack and its plugins.
 * ➖ babel and its plugins.
 * ➖ eslint.
+* ➖ mocha.
+* ➖ chai.
+* ➖ jsdom.
