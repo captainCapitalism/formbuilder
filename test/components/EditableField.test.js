@@ -1,6 +1,5 @@
 /*eslint no-unused-vars: [2, { "varsIgnorePattern": "^d$" }]*/
 
-import {expect} from "chai";
 import {Simulate} from "react-addons-test-utils";
 import sinon from "sinon";
 import EditableField from "../../src/components/EditableField";

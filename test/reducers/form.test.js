@@ -1,6 +1,5 @@
 /*eslint no-unused-vars: [2, { "varsIgnorePattern": "^d$" }]*/
 
-import {expect} from "chai";
 import * as actions from "../../src/actions/fieldlist";
 import config from "../../src/config";
 
