@@ -77,7 +77,7 @@ describe("notifications actions", () => {
           }
         });
         sandbox.clock.tick(3);
-        expect(dispatch.calledOnce).to.be.true;
+        expect(dispatch.calledOnce).toBe(true);
       });
 
       test("should dismiss messages by default", () => {

@@ -24,12 +24,12 @@ describe("form reducer", () => {
       describe("schema", () => {
         test("should add a new field to the form schema", () => {
           expect(Object.keys(state.schema.properties))
-            .to.have.length.of(1);
+            .toHaveLength(1);
         });
 
         it("should generate a sluggified name for the added field", () => {
           expect(firstFieldAdded)
-            .to.match(/^question_\d+/);
+            .toEqual(expect.stringMatching(/^question_\d+/));
         });
 
         it("should assign the expected title to added field", () => {
@@ -48,7 +48,7 @@ describe("form reducer", () => {
       describe("uiSchema", () => {
         it("should have an entry for added field", () => {
           expect(state.uiSchema)
-            .to.have.property(firstFieldAdded);
+            .toHaveProperty(firstFieldAdded);
         });
 
         it("should provide an editSchema", () => {
@@ -74,19 +74,19 @@ describe("form reducer", () => {
       describe("schema", () => {
         it("should add a second field to the form schema", () => {
           expect(Object.keys(newState.schema.properties))
-            .to.have.length.of(2);
+            .toHaveLength(2);
         });
 
         it("should generate a sluggified name for the second field", () => {
           expect(secondFieldAdded)
-            .to.match(/^question_\d+/);
+            .toEqual(expect.stringMatching(/^question_\d+/));
         });
       });
 
       describe("uiSchema", () => {
         it("should have an entry for the newly added field", () => {
           expect(newState.uiSchema)
-            .to.have.property(secondFieldAdded);
+            .toHaveProperty(secondFieldAdded);
         });
 
         it("should provide an editSchema", () => {
@@ -131,7 +131,7 @@ describe("form reducer", () => {
 
       it("should remove a field from the required fields list", () => {
         expect(removedState.schema.required)
-          .to.be.a("undefined");
+          .toBe(undefined);
       });
 
       it("should remove a field from the uiSchema order list", () => {
@@ -196,7 +196,7 @@ describe("form reducer", () => {
 
       it("should discard previous name", () => {
         expect(renamedState.schema.properties[firstFieldAdded])
-          .to.be.a("undefined");
+          .toBe(undefined);
       });
 
       it("should update required fields list", () => {
