@@ -14,6 +14,7 @@
 * 🔥 Tests related to removed components.
 * 🔥 Actions related to server.
 * 🔥 Background image.
+* 🔥 Webpack config.
 
 ### Modified dependencies
 
