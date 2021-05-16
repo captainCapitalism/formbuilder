@@ -1,5 +1,5 @@
 import Form from "@rjsf/core";
-import SchemaField from "@rjsf/core/lib/components/fields/SchemaField";
+import SchemaField from "@rjsf/core/dist/cjs/components/fields/SchemaField";
 import React, {Component} from "react";
 import {Button, ButtonToolbar} from "react-bootstrap";
 import {Draggable, Droppable} from "react-drag-and-drop";
