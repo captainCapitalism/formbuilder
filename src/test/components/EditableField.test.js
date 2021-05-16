@@ -2,8 +2,8 @@
 
 import {Simulate} from "react-addons-test-utils";
 import sinon from "sinon";
-import EditableField from "../../src/components/EditableField";
-import config from "../../src/config";
+import EditableField from "../../components/EditableField";
+import config from "../../config";
 
 import {createComponent} from "../test-utils";
 

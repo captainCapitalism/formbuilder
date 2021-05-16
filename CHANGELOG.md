@@ -7,6 +7,7 @@
 * 🚚 Move source files to `src` directory.
 * ♻ Add riek's RIEInput.
 * ✅ Run tests with `jest`.
+* 🚚 Move test files to `src` directory with intent of placing them next to source files.
 
 ### Removed files
 

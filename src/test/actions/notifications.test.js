@@ -2,7 +2,7 @@
 
 import sinon from "sinon";
 
-import {addNotification, NOTIFICATION_ADD} from "../../src/actions/notifications";
+import {addNotification, NOTIFICATION_ADD} from "../../actions/notifications";
 
 describe("notifications actions", () => {
   let sandbox;

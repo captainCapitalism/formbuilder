@@ -1,9 +1,9 @@
 /*eslint no-unused-vars: [2, { "varsIgnorePattern": "^d$" }]*/
 
-import * as actions from "../../src/actions/fieldlist";
-import config from "../../src/config";
+import * as actions from "../../actions/fieldlist";
+import config from "../../config";
 
-import form from "../../src/reducers/form";
+import form from "../../reducers/form";
 
 
 const {fieldList} = config;
@@ -22,7 +22,7 @@ describe("form reducer", () => {
 
     describe("Empty form", () => {
       describe("schema", () => {
-        it("should add a new field to the form schema", () => {
+        test("should add a new field to the form schema", () => {
           expect(Object.keys(state.schema.properties))
             .to.have.length.of(1);
         });
