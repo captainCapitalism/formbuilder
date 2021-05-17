@@ -1,10 +1,9 @@
 /*eslint no-unused-vars: [2, { "varsIgnorePattern": "^d$" }]*/
 
 import {Simulate} from "react-dom/test-utils";
-import sinon from "sinon";
 import EditableField from "../../components/EditableField";
 import config from "../../config";
-
+import {describe, jest, it, expect, beforeEach} from "@jest/globals";
 import {createComponent} from "../test-utils";
 
 
@@ -12,26 +11,21 @@ const {fieldList} = config;
 const textField = fieldList.find(x => x.id === "text");
 
 describe("EditableField", () => {
-  var sandbox, compProps;
+  let compProps;
 
   const schema = textField.jsonSchema;
   const uiSchema = textField.uiSchema;
 
   beforeEach(() => {
-    sandbox = sinon.sandbox.create();
     compProps = {
       name: "field_1234567",
       schema,
       uiSchema,
-      addField: sandbox.spy(),
-      switchField: sandbox.spy(),
-      updateField: sandbox.spy(),
-      onChange: sandbox.spy(),
+      addField: jest.fn(),
+      switchField: jest.fn(),
+      updateField: jest.fn(),
+      onChange: jest.fn(),
     };
-  });
-
-  afterEach(() => {
-    sandbox.restore();
   });
 
   describe("Default state", () => {

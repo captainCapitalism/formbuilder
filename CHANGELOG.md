@@ -55,3 +55,4 @@
 * ➖ mocha.
 * ➖ chai.
 * ➖ jsdom.
+* ➖ sinon.

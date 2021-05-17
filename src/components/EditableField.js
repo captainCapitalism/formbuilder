@@ -57,13 +57,13 @@ class FieldPropertiesEditor extends Component {
           <strong className="panel-title">Edit {name}</strong>
 
           <ButtonToolbar className="pull-right">
-            <FieldListDropdown bsStyle="link" {...this.props}>
+            <FieldListDropdown variant="link" {...this.props}>
               change field <i className="glyphicon glyphicon-cog"/>
             </FieldListDropdown>
-            <Button bsStyle="link" onClick={onDelete}>
+            <Button variant="link" onClick={onDelete}>
               delete <i className="glyphicon glyphicon-trash"/>
             </Button>
-            <Button bsStyle="link" name="close-btn" onClick={onCancel}>
+            <Button variant="link" name="close-btn" onClick={onCancel}>
               close <i className="glyphicon glyphicon-remove-sign"/>
             </Button>
           </ButtonToolbar>
@@ -102,10 +102,10 @@ function DraggableFieldContainer(props) {
             {children}
           </div>
           <div className="col-sm-3 editable-field-actions">
-            <Button bsStyle="link" onClick={onEdit}>
+            <Button variant="link" onClick={onEdit}>
               edit <i className="glyphicon glyphicon-edit"/>
             </Button>
-            <Button bsStyle="link" onClick={onDelete}>
+            <Button variant="link" onClick={onDelete}>
               delete <i className="glyphicon glyphicon-trash"/>
             </Button>
           </div>

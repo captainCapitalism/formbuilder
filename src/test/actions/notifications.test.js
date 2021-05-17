@@ -1,20 +1,19 @@
 /*eslint no-unused-vars: [2, { "varsIgnorePattern": "^d$" }]*/
 
-import sinon from "sinon";
-
+import {afterEach, beforeEach, describe, expect, jest, test} from "@jest/globals";
 import {addNotification, NOTIFICATION_ADD} from "../../actions/notifications";
 
+
 describe("notifications actions", () => {
-  let sandbox;
   let dispatch;
 
   beforeEach(() => {
-    sandbox = sinon.sandbox.create();
-    dispatch = sandbox.stub();
-  });
+    dispatch = jest.fn();
+    jest.useFakeTimers("modern");
 
+  });
   afterEach(() => {
-    sandbox.restore();
+    jest.clearAllTimers();
   });
 
   describe("addNotification", () => {
@@ -37,29 +36,27 @@ describe("notifications actions", () => {
       });
     });
     describe("With fake timers", () => {
-      beforeEach(() => {
-        sandbox.useFakeTimers();
-      });
 
       test("should dismiss a message after a specific time", () => {
         addNotification("Some dismissable message", {
           type: "info",
           autoDismiss: true,
-          dismissAfter: 2
+          dismissAfter: 200
         })(dispatch);
-        sinon.assert.calledWithMatch(dispatch, {
+        expect(dispatch).toHaveBeenCalledWith(expect.objectContaining({
           type: "NOTIFICATION_ADD",
           notification: {
-            id: sinon.match.string,
+            id: expect.any(String),
             message: "Some dismissable message",
             type: "info"
           }
-        });
-        sandbox.clock.tick(3);
-        sinon.assert.calledWithMatch(dispatch, {
-          type: "NOTIFICATION_REMOVE",
-          id: sinon.match.string
-        });
+        }));
+        setTimeout(() => {
+          expect(dispatch).toHaveBeenCalledWith(expect.objectContaining({
+            type: "NOTIFICATION_REMOVE",
+            id: expect.any(String)
+          }));
+        }, 201);
       });
 
       test("should not dismiss an undismissable message", () => {
@@ -68,33 +65,37 @@ describe("notifications actions", () => {
           autoDismiss: false,
           dismissAfter: 2
         })(dispatch);
-        sinon.assert.calledWithMatch(dispatch, {
+        expect(dispatch).toHaveBeenCalledWith(expect.objectContaining({
           type: "NOTIFICATION_ADD",
           notification: {
-            id: sinon.match.string,
+            id: expect.any(String),
             message: "Some dismissable message",
             type: "info"
           }
-        });
-        sandbox.clock.tick(3);
-        expect(dispatch.calledOnce).toBe(true);
+        }));
+        setTimeout(() => {
+          expect(dispatch).toBeCalledTimes(1);
+        }, 3);
+        jest.runAllTimers();
       });
 
       test("should dismiss messages by default", () => {
         addNotification("Some dismissable message")(dispatch);
-        sinon.assert.calledWithMatch(dispatch, {
+        expect(dispatch).toHaveBeenCalledWith(expect.objectContaining({
           type: "NOTIFICATION_ADD",
           notification: {
-            id: sinon.match.string,
+            id: expect.any(String),
             message: "Some dismissable message",
             type: "info"
           }
-        });
-        sandbox.clock.tick(6000);
-        sinon.assert.calledWithMatch(dispatch, {
-          type: "NOTIFICATION_REMOVE",
-          id: sinon.match.string
-        });
+        }));
+        setTimeout(() => {
+          expect(dispatch).toHaveBeenCalledWith(expect.objectContaining({
+            type: "NOTIFICATION_REMOVE",
+            id: expect.any(String)
+          }));
+        }, 6000);
+        jest.runAllTimers();
       });
     });
   });
